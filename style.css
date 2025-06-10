@@ -1,7 +1,7 @@
 /* Variables de couleurs */
 :root {
     --primary-color: #003366; /* Bleu foncé pour le logo et les éléments clés */
-    --secondary-color:#20B2AA; /* Jaune/Or pour les accents */
+    --secondary-color: #20B2AA; /* Nouveau Bleu-Vert élégant pour les accents */
     --text-color: #333; /* Texte sombre */
     --light-text-color: #f4f4f4; /* Texte clair sur fond sombre */
     --background-light: #f9f9f9; /* Fond clair pour les sections */
@@ -37,20 +37,18 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px var(--shadow-light);
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur petits écrans */
+    flex-wrap: wrap;
 }
 
 header .logo {
-    height: 50px; /* Taille du logo */
-    filter: brightness(0) invert(1); /* Rend le logo blanc si c'est une image sombre */
-    /* Si votre logo est déjà blanc ou clair, retirez cette ligne */
+    height: 50px;
+    filter: brightness(0) invert(1);
 }
 
-/* Nouvelle règle pour le texte du logo */
 header .logo-text {
     font-size: 2.2rem;
     font-weight: bold;
-    color: var(--secondary-color); /* Couleur or/jaune */
+    color: var(--secondary-color);
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -76,141 +74,154 @@ header nav a.active {
     border-bottom: 2px solid var(--secondary-color);
 }
 
-/* Contenu principal (formulaire) */
+/* Contenu principal (main) */
 main {
-    flex: 1; /* Permet au contenu de prendre l'espace disponible */
-    padding: 2rem;
-    max-width: 900px; /* Limite la largeur du contenu principal */
-    margin: 2rem auto; /* Centre le contenu */
+    flex: 1;
+}
+
+/* Section Hero */
+.hero {
+    background: url('istockphoto-525408989-612x612.jpg') no-repeat center center/cover; /* NOM DE L'IMAGE MIS À JOUR ICI */
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--light-text-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--light-text-color);
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: #1a9c94;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--light-text-color);
+    border: 2px solid var(--light-text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--light-text-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Section Features */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
     background-color: #fff;
+}
+
+.feature-item {
+    flex: 1 1 300px;
+    max-width: 350px;
+    text-align: center;
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--shadow-light);
-}
-
-main h1 {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 0.5rem;
-    font-size: 2.2rem;
-}
-
-main .subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-}
-
-/* Formulaire */
-form {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.form-section {
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 1.5rem;
     background-color: var(--background-light);
 }
 
-.form-section h2 {
-    color: var(--primary-color);
-    margin-bottom: 1.2rem;
-    font-size: 1.5rem;
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
-    display: inline-block; /* Pour que la bordure ne prenne pas toute la largeur */
+.feature-item .feature-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+    object-fit: contain;
 }
 
-.form-group {
+.feature-item h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
     margin-bottom: 1rem;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group input[type="date"],
-.form-group input[type="time"],
-.form-group input[type="number"],
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+.feature-item p {
     font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.2);
-    outline: none;
-}
-
-.form-group small {
-    color: #777;
-    font-size: 0.85rem;
-    margin-top: 0.3rem;
-    display: block;
-}
-
-/* Groupes de radios */
-.radio-group {
-    display: flex;
-    flex-wrap: wrap; /* Permet aux radios de passer à la ligne */
-    gap: 1rem 2rem; /* Espacement entre les groupes de radios */
-}
-
-.radio-group input[type="radio"] {
-    margin-right: 0.5rem;
-    transform: scale(1.1); /* Agrandit les radios */
-}
-
-.radio-group label {
-    font-weight: normal; /* Labels des radios moins gras */
-    display: inline-block; /* Permet au label d'être à côté du radio */
     color: var(--text-color);
-    cursor: pointer;
 }
 
-.service-description {
-    font-style: italic;
-    margin-top: 0.8rem;
-    padding-left: 0.5rem;
-    border-left: 3px solid var(--secondary-color);
-    color: #555;
+/* Section CTA (Call to Action) */
+.cta {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 4rem 2rem;
 }
 
-/* Bouton Envoyer */
-button[type="submit"] {
-    background-color: var(--secondary-color);
-    color: var(--primary-color); /* Texte sur le bouton jaune */
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 5px;
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-text-color);
+}
+
+.cta p {
     font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    width: fit-content; /* S'adapte au contenu */
-    margin: 1.5rem auto 0; /* Centre le bouton */
-    display: block; /* Pour margin:auto */
-}
-
-button[type="submit"]:hover {
-    background-color: #e0ac00; /* Une teinte plus foncée au survol */
-    transform: translateY(-2px);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Pied de page */
@@ -219,7 +230,7 @@ footer {
     color: var(--light-text-color);
     text-align: center;
     padding: 1.5rem 1rem;
-    margin-top: auto; /* Pousse le footer vers le bas */
+    margin-top: auto;
     box-shadow: 0 -2px 5px var(--shadow-light);
     font-size: 0.9rem;
 }
@@ -232,16 +243,31 @@ footer {
         padding: 1rem 4rem;
     }
 
-    main {
-        padding: 2.5rem;
+    .hero {
+        padding: 8rem 2rem;
+    }
+    .hero h1 {
+        font-size: 4.5rem;
+    }
+    .hero .subtitle {
+        font-size: 1.5rem;
+    }
+    .hero-buttons {
+        gap: 2rem;
     }
 
-    .form-group.inline-fields { /* Si vous avez des champs à mettre côte à côte */
-        display: flex;
-        gap: 1rem;
+    .features {
+        padding: 4rem 3rem;
     }
-    .form-group.inline-fields > * {
-        flex: 1;
+    .feature-item {
+        flex: 1 1 250px;
+    }
+
+    .cta {
+        padding: 5rem 3rem;
+    }
+    .cta h2 {
+        font-size: 3rem;
     }
 }
 
@@ -251,24 +277,27 @@ footer {
         padding: 1.5rem 6rem;
     }
 
-    main {
-        max-width: 1000px;
-        padding: 3rem;
+    .hero {
+        padding: 10rem 2rem;
+    }
+    .hero h1 {
+        font-size: 5rem;
+    }
+    .hero .subtitle {
+        font-size: 1.6rem;
     }
 
-    main h1 {
-        font-size: 2.8rem;
+    .features {
+        padding: 5rem 4rem;
+    }
+    .feature-item {
+        max-width: 30%;
     }
 
-    main .subtitle {
-        font-size: 1.2rem;
+    .cta {
+        padding: 6rem 4rem;
     }
-
-    .form-section {
-        padding: 2rem;
-    }
-
-    .form-section h2 {
-        font-size: 1.8rem;
+    .cta h2 {
+        font-size: 3.5rem;
     }
 }
