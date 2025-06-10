@@ -1,320 +1,297 @@
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-  color: #333;
+/* Variables de couleurs */
+:root {
+    --primary-color: #003366; /* Bleu foncé pour le logo et les éléments clés */
+    --secondary-color: #FFC300; /* Jaune/Or pour les accents */
+    --text-color: #333; /* Texte sombre */
+    --light-text-color: #f4f4f4; /* Texte clair sur fond sombre */
+    --background-light: #f9f9f9; /* Fond clair pour les sections */
+    --background-dark: #222; /* Fond sombre pour l'en-tête/pied de page */
+    --border-color: #ddd; /* Couleur des bordures de formulaire */
+    --success-color: #28a745; /* Vert pour le succès ou validation */
+    --shadow-light: rgba(0, 0, 0, 0.1);
 }
 
-header {
-  background: #111;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-}
-
-.logo {
-  height: 60px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-/* Styles généraux pour le corps */
-body {
-    font-family: Arial, sans-serif;
+/* Réinitialisation de base */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    box-sizing: border-box;
 }
 
-/* Section Héro */
-.hero-section {
-    background: url('https://via.placeholder.com/1500x800?text=Image+de+fond+professionnelle') no-repeat center center/cover; /* Remplacez par votre image de fond */
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-    position: relative;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh; /* Permet au footer de rester en bas */
+}
+
+/* En-tête */
+header {
+    background-color: var(--background-dark);
+    color: var(--light-text-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    min-height: 600px; /* Hauteur minimale pour l'image */
+    box-shadow: 0 2px 5px var(--shadow-light);
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur petits écrans */
 }
 
-/* Contenu du Héro (pour centrer le texte et le formulaire) */
-.hero-content {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour la lisibilité */
-    padding: 30px;
+header .logo {
+    height: 50px; /* Taille du logo */
+    filter: brightness(0) invert(1); /* Rend le logo blanc si c'est une image sombre */
+    /* Si votre logo est déjà blanc ou clair, retirez cette ligne */
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+header nav a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 0.2rem;
+}
+
+header nav a:hover,
+header nav a.active {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Contenu principal (formulaire) */
+main {
+    flex: 1; /* Permet au contenu de prendre l'espace disponible */
+    padding: 2rem;
+    max-width: 900px; /* Limite la largeur du contenu principal */
+    margin: 2rem auto; /* Centre le contenu */
+    background-color: #fff;
     border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-light);
 }
 
-.hero-content h1 {
-    font-size: 2.8em;
-    margin-bottom: 10px;
+main h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
 }
 
-.hero-content p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-}
-
-/* Conteneur du formulaire rapide */
-.quick-quote-form-container {
-    background-color: white;
-    color: #333;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px; /* Largeur maximale pour le formulaire */
-    margin: 30px auto 0; /* Espacement après le texte du héro */
-}
-
-.quick-quote-form-container h2 {
-    color: #0056b3; /* Une couleur qui contraste bien */
-    margin-top: 0;
-    font-size: 1.8em;
-}
-
-.quick-quote-form-container .form-subtitle {
-    font-size: 0.9em;
+main .subtitle {
+    text-align: center;
     color: #666;
-    margin-bottom: 25px;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
 }
 
-/* Groupes de formulaires */
+/* Formulaire */
+form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-section {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+    background-color: var(--background-light);
+}
+
+.form-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    display: inline-block; /* Pour que la bordure ne prenne pas toute la largeur */
+}
+
 .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+    margin-bottom: 1rem;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
 .form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
 .form-group input[type="date"],
 .form-group input[type="time"],
-.form-group input[type="number"] {
-    width: calc(100% - 20px); /* Ajuster la largeur avec padding */
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-.form-group input[type="date"],
-.form-group input[type="time"] {
-    width: calc(50% - 25px); /* Pour aligner date et heure */
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-/* Pour le dernier champ date/time dans un groupe pour éviter le margin-right */
-.form-group input[type="date"]:last-child,
-.form-group input[type="time"]:last-child {
-    margin-right: 0;
-}
-
-
-/* Boutons radio (Aller simple / Aller-Retour) */
-.radio-group {
-    display: flex;
-    gap: 20px; /* Espace entre les options */
-    margin-top: 10px;
-}
-
-.radio-group input[type="radio"] {
-    display: none; /* Cache le bouton radio par défaut */
-}
-
-.radio-group label {
-    background-color: #f0f0f0;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    transition: background-color 0.3s, border-color 0.3s;
-    font-weight: normal; /* Annule le bold du label général */
-}
-
-.radio-group input[type="radio"]:checked + label {
-    background-color: #007bff; /* Couleur quand sélectionné */
-    color: white;
-    border-color: #007bff;
-}
-
-/* Bouton de soumission */
-button[type="submit"] {
-    background-color: #28a745; /* Une couleur verte pour l'action */
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    cursor: pointer;
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
     width: 100%;
-    transition: background-color 0.3s ease;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #218838;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.2);
+    outline: none;
 }
 
-/* Responsive de base */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2em;
-    }
-    .hero-content p {
-        font-size: 1em;
-    }
-    .quick-quote-form-container {
-        padding: 20px;
-    }
-    .form-group input[type="date"],
-    .form-group input[type="time"] {
-        width: calc(100% - 20px);
-        display: block;
-        margin-right: 0;
-        margin-bottom: 10px; /* Espace entre date et heure sur mobile */
-    }
-    .radio-group {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-/* Styles pour la page de devis détaillée */
-.detailed-quote-page-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.detailed-quote-page-container h1 {
-    text-align: center;
-    color: #0056b3;
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.detailed-quote-page-container .subtitle {
-    text-align: center;
-    color: #666;
-    font-size: 1.1em;
-    margin-bottom: 40px;
-}
-
-.form-section {
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 30px;
-    background-color: #f9f9f9;
-}
-
-.form-section h2 {
-    color: #007bff;
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-}
-
-/* Styles pour les champs input et textarea, hérités du formulaire rapide, ajustés si besoin */
-.detailed-quote-page-container input[type="text"],
-.detailed-quote-page-container input[type="email"],
-.detailed-quote-page-container input[type="tel"],
-.detailed-quote-page-container input[type="number"],
-.detailed-quote-page-container textarea,
-.detailed-quote-page-container select {
-    width: calc(100% - 22px); /* Ajuster pour le padding et bordure */
-    padding: 11px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-    box-sizing: border-box; /* Important pour inclure padding et bordure dans la largeur */
-}
-
-.detailed-quote-page-container input[type="number"] {
-    width: 80px; /* Largeur fixe pour les champs numériques */
-    text-align: center;
-}
-
-.summary-box {
-    background-color: #e9f7ff;
-    border: 1px solid #cce7ff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
-}
-
-.summary-box h3 {
-    color: #0056b3;
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.3em;
-}
-
-.summary-box p {
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
-
-.summary-box strong {
-    color: #333;
-}
-
-.service-description {
-    font-size: 0.9em;
+.form-group small {
     color: #777;
-    margin-top: 10px;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
     display: block;
 }
 
-/* Bouton de soumission - peut réutiliser le style du bouton rapide */
-.detailed-quote-page-container button[type="submit"] {
-    margin-top: 30px;
+/* Groupes de radios */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux radios de passer à la ligne */
+    gap: 1rem 2rem; /* Espacement entre les groupes de radios */
 }
 
-@media (max-width: 768px) {
-    .detailed-quote-page-container {
-        margin: 20px auto;
-        padding: 20px;
+.radio-group input[type="radio"] {
+    margin-right: 0.5rem;
+    transform: scale(1.1); /* Agrandit les radios */
+}
+
+.radio-group label {
+    font-weight: normal; /* Labels des radios moins gras */
+    display: inline-block; /* Permet au label d'être à côté du radio */
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.service-description {
+    font-style: italic;
+    margin-top: 0.8rem;
+    padding-left: 0.5rem;
+    border-left: 3px solid var(--secondary-color);
+    color: #555;
+}
+
+/* Bouton Envoyer */
+button[type="submit"] {
+    background-color: var(--secondary-color);
+    color: var(--primary-color); /* Texte sur le bouton jaune */
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: fit-content; /* S'adapte au contenu */
+    margin: 1.5rem auto 0; /* Centre le bouton */
+    display: block; /* Pour margin:auto */
+}
+
+button[type="submit"]:hover {
+    background-color: #e0ac00; /* Une teinte plus foncée au survol */
+    transform: translateY(-2px);
+}
+
+/* Pied de page */
+footer {
+    background-color: var(--background-dark);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: auto; /* Pousse le footer vers le bas */
+    box-shadow: 0 -2px 5px var(--shadow-light);
+    font-size: 0.9rem;
+}
+
+/* Adaptations Responsives (Mobile First) */
+
+/* Pour les tablettes et plus grands */
+@media (min-width: 768px) {
+    header {
+        padding: 1rem 4rem;
     }
-    .detailed-quote-page-container h1 {
-        font-size: 1.8em;
+
+    main {
+        padding: 2.5rem;
     }
-    .form-section {
-        padding: 15px;
+
+    .form-group.inline-fields { /* Si vous avez des champs à mettre côte à côte */
+        display: flex;
+        gap: 1rem;
+    }
+    .form-group.inline-fields > * {
+        flex: 1;
     }
 }
+
+/* Pour les ordinateurs de bureau */
+@media (min-width: 1024px) {
+    header {
+        padding: 1.5rem 6rem;
+    }
+
+    main {
+        max-width: 1000px;
+        padding: 3rem;
+    }
+
+    main h1 {
+        font-size: 2.8rem;
+    }
+
+    main .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .form-section {
+        padding: 2rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.8rem;
+    }
+}
+Ensuite, ajustement de index.html (très petite modification)
+Il y a un petit détail dans votre index.html que j'ai remarqué sur la capture d'écran "Capture d'écran 2025-06-10 125553.png" : le logo dans l'en-tête ne s'affiche pas correctement. Cela est probablement dû au fait que votre logo est noir et que l'en-tête est maintenant noir.
+
+Pour que le logo apparaisse bien, nous allons ajouter une classe logo-text au <h1> dans l'en-tête si vous n'avez pas de fichier logo.png clair, ou ajuster le CSS si votre logo.png est une image.
+
+Option 1 : Si vous voulez que "LS Travel" soit du texte (plus simple et s'adapte au CSS)
+
+Si vous préférez que "LS Travel" dans l'en-tête soit du texte stylisé plutôt qu'une image de logo (car l'image est peut-être foncée sur fond foncé), modifiez votre index.html comme suit :
+
+Ouvrez index.html en mode édition sur GitHub.
+
+Trouvez la section <header> :
+
+HTML
+
+<header>
+    <img src="logo.png" alt="Logo LS Travel" class="logo" />
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="reservation.html">Réservation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+        </ul>
+    </nav>
+</header>
