@@ -1,304 +1,287 @@
-/* Variables de couleurs */
+/* Variables CSS pour les couleurs (à placer en haut de votre fichier CSS) */
 :root {
-    --primary-color: #003366; /* Bleu foncé pour le logo et les éléments clés */
-    --secondary-color: #20B2AA; /* Nouveau Bleu-Vert élégant pour les accents */
-    --text-color: #333; /* Texte sombre */
-    --light-text-color: #f4f4f4; /* Texte clair sur fond sombre */
-    --background-light: #f9f9f9; /* Fond clair pour les sections */
-    --background-dark: #222; /* Fond sombre pour l'en-tête/pied de page */
-    --border-color: #ddd; /* Couleur des bordures de formulaire */
-    --success-color: #28a745; /* Vert pour le succès ou validation */
-    --shadow-light: rgba(0, 0, 0, 0.1);
+    --ls-green-primary: #7ED321; /* Votre vert vif */
+    --ls-yellow-secondary: #EBA830; /* Votre jaune moutarde */
+    --ls-dark-gray: #333333; /* Gris anthracite pour le texte ou fonds sombres */
+    --ls-light-gray: #F5F5F5; /* Gris clair pour les fonds de sections */
+    --ls-white: #FFFFFF; /* Blanc pur */
 }
 
-/* Réinitialisation de base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Styles de base pour tout le corps de la page */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-light);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Permet au footer de rester en bas */
-}
-
-/* En-tête */
-header {
-    background-color: var(--background-dark);
-    color: var(--light-text-color);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px var(--shadow-light);
-    flex-wrap: wrap;
-}
-
-header .logo {
-    height: 50px;
-    filter: brightness(0) invert(1);
-}
-
-header .logo-text {
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: var(--secondary-color);
     margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif; /* Police de texte par défaut */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Empêche le défilement horizontal non désiré */
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Police des titres par défaut */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 700;
 }
 
-header nav a {
-    color: var(--light-text-color);
+p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+/* Styles des liens génériques */
+a {
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    padding-bottom: 0.2rem;
+    color: inherit;
 }
 
-header nav a:hover,
-header nav a.active {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
-/* Contenu principal (main) */
-main {
-    flex: 1;
-}
-
-/* Section Hero */
-.hero {
-    background: url('istockphoto-525408989-612x612.jpg') no-repeat center center/cover; /* NOM DE L'IMAGE PRINCIPALE */
-    color: var(--light-text-color);
-    text-align: center;
-    padding: 6rem 2rem;
+/* Section Héro (Première section avec vidéo en fond) */
+.hero-section {
     position: relative;
+    width: 100%;
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex;
+    align-items: center; /* Centre verticalement le contenu */
+    justify-content: center; /* Centre horizontalement le contenu */
     overflow: hidden;
+    text-align: center;
+    color: var(--ls-white);
 }
 
-.hero::before {
-    content: '';
+/* Styles pour la vidéo en arrière-plan */
+.video-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    z-index: -1; /* Place la vidéo en arrière-plan */
+    overflow: hidden;
 }
 
-.hero > * {
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre la vidéo */
+    object-fit: cover; /* Recouvre tout l'espace disponible sans déformer */
+}
+
+/* Voile sombre par-dessus la vidéo pour améliorer la lisibilité du texte */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Voile noir semi-transparent */
+    z-index: 0;
+}
+
+/* Contenu de la section Héro (texte et bouton) */
+.hero-content {
     position: relative;
-    z-index: 2;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    color: var(--light-text-color);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.hero .subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 2.5rem;
+    z-index: 1; /* Place le contenu au-dessus du voile */
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--light-text-color);
+    padding: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Ombre pour le texte pour améliorer la lisibilité */
 }
 
-.hero-buttons {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
-.btn-primary, .btn-secondary {
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Styles pour le bouton d'appel à l'action */
+.btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-    white-space: nowrap;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation au survol */
+    cursor: pointer;
 }
 
 .btn-primary {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: 2px solid var(--secondary-color);
+    background-color: var(--ls-green-primary);
+    color: var(--ls-white);
+    border: none;
 }
 
 .btn-primary:hover {
-    background-color: #1a9c94;
-    transform: translateY(-2px);
+    background-color: #68b81d; /* Une teinte légèrement plus foncée du vert pour le survol */
+    transform: translateY(-2px); /* Léger mouvement vers le haut au survol */
 }
 
-.btn-secondary {
-    background-color: transparent;
-    color: var(--light-text-color);
-    border: 2px solid var(--light-text-color);
+/* --- Responsive Design pour la section Héro --- */
+@media screen and (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+    }
 }
 
-.btn-secondary:hover {
-    background-color: var(--light-text-color);
-    color: var(--primary-color);
-    transform: translateY(-2px);
+@media screen and (max-width: 768px) {
+    .hero-section {
+        height: 70vh;
+    }
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
 }
 
-/* Section Features (sans icônes) */
-.features {
+@media screen and (max-width: 480px) {
+    .hero-section {
+        height: 60vh;
+    }
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+    .hero-content p {
+        font-size: 0.9em;
+    }
+    .btn {
+        width: 90%; /* Bouton prend plus de place sur mobile */
+        padding: 10px 20px;
+    }
+}
+
+
+/* Section À Propos (Qui est Laurent et les points forts) */
+.about-section {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 3rem 2rem;
-    background-color: #fff;
+    flex-direction: column; /* Par défaut, les éléments s'empilent sur mobile */
+    align-items: center; /* Centre les éléments */
+    gap: 40px; /* Espace entre le contenu et l'image */
+    padding: 80px 20px; /* Espacement intérieur de la section */
+    background-color: var(--ls-light-gray); /* Fond gris clair pour cette section */
+    color: var(--ls-dark-gray); /* Texte en gris foncé */
+    text-align: center; /* Centre le texte par défaut */
+}
+
+.about-content {
+    max-width: 800px; /* Limite la largeur du texte pour la lisibilité */
+}
+
+.about-content h2 {
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    color: var(--ls-dark-gray);
+}
+
+.about-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    max-width: 100%; /* L'image ne dépasse pas son conteneur */
+    height: auto;
+    border-radius: 8px; /* Bords légèrement arrondis pour l'image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour faire ressortir l'image */
+}
+
+/* Grille des Points Forts */
+.features-grid {
+    display: grid; /* Utilise Grid pour organiser les points forts */
+    grid-template-columns: 1fr; /* Une seule colonne par défaut (pour mobile) */
+    gap: 30px; /* Espacement entre les éléments de la grille */
+    margin-top: 40px; /* Espace au-dessus de la grille */
 }
 
 .feature-item {
-    flex: 1 1 300px;
-    max-width: 350px;
-    text-align: center;
-    padding: 2rem;
+    background-color: var(--ls-white); /* Fond blanc pour chaque point fort */
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    background-color: var(--background-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Légère ombre pour les points forts */
+    text-align: center;
 }
 
-/* Suppression du style pour .feature-icon */
-/* .feature-item .feature-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1rem;
-    object-fit: contain;
-} */
+.feature-item i { /* Style des icônes Font Awesome */
+    font-size: 3em; /* Grande taille d'icône */
+    color: var(--ls-green-primary); /* Couleur verte pour les icônes */
+    margin-bottom: 15px;
+}
 
-.feature-item h2 {
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    margin-bottom: 1rem; /* Conservez cette marge ou ajustez-la si nécessaire */
+.feature-item h3 {
+    font-size: 1.4em;
+    color: var(--ls-dark-gray);
+    margin-bottom: 10px;
 }
 
 .feature-item p {
-    font-size: 1rem;
-    color: var(--text-color);
+    font-size: 0.95em;
+    color: var(--ls-dark-gray);
 }
 
-/* Section CTA (Call to Action) */
-.cta {
-    text-align: center;
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 4rem 2rem;
-}
-
-.cta h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--light-text-color);
-}
-
-.cta p {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Pied de page */
-footer {
-    background-color: var(--background-dark);
-    color: var(--light-text-color);
-    text-align: center;
-    padding: 1.5rem 1rem;
-    margin-top: auto;
-    box-shadow: 0 -2px 5px var(--shadow-light);
-    font-size: 0.9rem;
-}
-
-/* Adaptations Responsives (Mobile First) */
-
-/* Pour les tablettes et plus grands */
-@media (min-width: 768px) {
-    header {
-        padding: 1rem 4rem;
+/* --- Responsive Design pour la Section À Propos --- */
+@media screen and (min-width: 768px) {
+    .about-section {
+        flex-direction: row; /* Sur les écrans plus larges, aligne en ligne (image à côté du texte) */
+        text-align: left; /* Alignement du texte à gauche */
+        padding: 100px 40px; /* Plus d'espacement */
     }
 
-    .hero {
-        padding: 8rem 2rem;
-    }
-    .hero h1 {
-        font-size: 4.5rem;
-    }
-    .hero .subtitle {
-        font-size: 1.5rem;
-    }
-    .hero-buttons {
-        gap: 2rem;
+    .about-content {
+        flex: 2; /* Le contenu prend plus de place que l'image */
+        max-width: none; /* Supprime la limite de largeur */
     }
 
-    .features {
-        padding: 4rem 3rem;
-    }
-    .feature-item {
-        flex: 1 1 250px;
+    .about-image {
+        flex: 1; /* L'image prend moins de place */
+        display: flex; /* Pour centrer l'image si elle est plus petite */
+        justify-content: center;
+        align-items: center;
     }
 
-    .cta {
-        padding: 5rem 3rem;
+    .about-image img {
+        max-width: 350px; /* Limite la taille de l'image sur les grands écrans */
+        height: auto;
     }
-    .cta h2 {
-        font-size: 3rem;
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr; /* Deux colonnes sur tablette */
+        text-align: left; /* Texte des points forts aligné à gauche */
     }
 }
 
-/* Pour les ordinateurs de bureau */
-@media (min-width: 1024px) {
-    header {
-        padding: 1.5rem 6rem;
+@media screen and (min-width: 1024px) {
+    .about-section {
+        gap: 80px; /* Plus d'espace entre le contenu et l'image */
     }
 
-    .hero {
-        padding: 10rem 2rem;
-    }
-    .hero h1 {
-        font-size: 5rem;
-    }
-    .hero .subtitle {
-        font-size: 1.6rem;
+    .about-content {
+        order: 0; /* Ordre normal (texte à gauche, image à droite) */
     }
 
-    .features {
-        padding: 5rem 4rem;
-    }
-    .feature-item {
-        max-width: 30%;
+    .about-image {
+        order: 1;
     }
 
-    .cta {
-        padding: 6rem 4rem;
-    }
-    .cta h2 {
-        font-size: 3.5rem;
+    .features-grid {
+        grid-template-columns: 1fr 1fr; /* Deux colonnes pour les points forts */
+        text-align: center; /* Recentrer le texte des points forts sur les grands écrans */
     }
 }
