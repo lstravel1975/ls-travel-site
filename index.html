@@ -1,197 +1,196 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LS Travel - Navette Aéroport</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LS Travel - Demande de Devis Détaillée</title> <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Logo LS Travel" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="reservation.html">Réservation</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <h1>Bienvenue chez LS Travel</h1>
-    <p>Votre service de navette aéroport 24/7, transport événementiel, déplacements privés ou professionnels et mise à disposition pour entreprises.</p>
+    <header>
+        <img src="logo.png" alt="Logo LS Travel" class="logo" />
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="reservation.html">Réservation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main class="detailed-quote-page-container">
-    <h1>Finalisez Votre Demande de Devis Personnalisé</h1>
-    <p class="subtitle">Quelques informations supplémentaires pour une offre sur mesure.</p>
+        <h1>Finalisez Votre Demande de Devis Personnalisé</h1>
+        <p class="subtitle">Quelques informations supplémentaires pour une offre sur mesure.</p>
 
-    <form id="detailedQuoteForm" action="traitement-devis.php" method="POST">
-        <section class="form-section">
-            <h2>1. Vos Coordonnées</h2>
-            <div class="form-group">
-                <label for="firstName">Prénom :</label>
-                <input type="text" id="firstName" name="firstName" required>
-            </div>
-            <div class="form-group">
-                <label for="lastName">Nom :</label>
-                <input type="text" id="lastName" name="lastName" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Adresse e-mail :</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Numéro de téléphone :</label>
-                <input type="tel" id="phone" name="phone" placeholder="+32 123 45 67 89" required>
-            </div>
-            <div class="form-group">
-                <label for="address">Adresse complète :</label>
-                <textarea id="address" name="address" rows="3" placeholder="Numéro, Rue, Code Postal, Ville, Pays"></textarea>
-            </div>
-        </section>
-
-        <section class="form-section">
-            <h2>2. Détails de Votre Trajet</h2>
-            <div class="form-group">
-                <label for="departureLocation">Lieu de départ :</label>
-                <input type="text" id="departureLocation" name="departureLocation" placeholder="Aéroport, gare ou adresse de départ..." required>
-            </div>
-            <div class="form-group">
-                <label for="arrivalLocation">Lieu d'arrivée :</label>
-                <input type="text" id="arrivalLocation" name="arrivalLocation" placeholder="Aéroport, gare ou adresse d'arrivée..." required>
-            </div>
-            <div class="form-group">
-                <label for="departureDate">Date & Heure de départ (Aller) :</label>
-                <input type="date" id="departureDate" name="departureDate" required>
-                <input type="time" id="departureTime" name="departureTime" value="09:00" required>
-            </div>
-            <div class="form-group">
-                <label for="tripType">Type de trajet :</label>
-                <div class="radio-group">
-                    <input type="radio" id="oneWay" name="tripType" value="oneWay" checked>
-                    <label for="oneWay">Aller simple</label>
-                    <input type="radio" id="roundTrip" name="tripType" value="roundTrip">
-                    <label for="roundTrip">Aller-Retour</label>
-                </div>
-            </div>
-            <div class="form-group" id="returnFields" style="display: none;">
-                <label for="returnDate">Date & Heure de retour :</label>
-                <input type="date" id="returnDate" name="returnDate">
-                <input type="time" id="returnTime" name="returnTime" value="18:00">
-            </div>
-
-            <div class="form-group">
-                <label for="outboundFlightNumber">N° de vol Aller :</label>
-                <input type="text" id="outboundFlightNumber" name="outboundFlightNumber" placeholder="Ex: LH1234 (facultatif)">
-            </div>
-            <div class="form-group">
-                <label for="outboundPickupAddress">Adresse de prise en charge (si différente du point de départ choisi) :</label>
-                <input type="text" id="outboundPickupAddress" name="outboundPickupAddress" placeholder="Ex: Votre hôtel, adresse privée...">
-            </div>
-
-            <div id="returnDetailsSection" style="display: none;">
-                <h3>Informations pour le Retour</h3>
+        <form id="detailedQuoteForm" action="traitement-devis.php" method="POST">
+            <section class="form-section">
+                <h2>1. Vos Coordonnées</h2>
                 <div class="form-group">
-                    <label for="returnFlightNumber">N° de vol Retour :</label>
-                    <input type="text" id="returnFlightNumber" name="returnFlightNumber" placeholder="Ex: AF5678 (facultatif)">
+                    <label for="firstName">Prénom :</label>
+                    <input type="text" id="firstName" name="firstName" required>
                 </div>
                 <div class="form-group">
-                    <label for="returnDropoffAddress">Adresse de dépose (si différente du point d'arrivée choisi) :</label>
-                    <input type="text" id="returnDropoffAddress" name="returnDropoffAddress" placeholder="Ex: Votre domicile, bureau...">
+                    <label for="lastName">Nom :</label>
+                    <input type="text" id="lastName" name="lastName" required>
                 </div>
-            </div>
-        </section>
-
-        <section class="form-section">
-            <h2>3. Passagers et Équipements</h2>
-            <div class="form-group">
-                <label for="passengers">Nombre total de passagers :</label>
-                <input type="number" id="passengers" name="passengers" min="1" value="1" required>
-            </div>
-            <div class="form-group">
-                <label for="adults">Adultes (13 ans et plus) :</label>
-                <input type="number" id="adults" name="adults" min="1" value="1" required>
-            </div>
-            <div class="form-group">
-                <label for="children0_6">Enfants (0-6 ans) :</label>
-                <input type="number" id="children0_6" name="children0_6" min="0" value="0">
-            </div>
-            <div class="form-group">
-                <label for="children7_12">Enfants (7-12 ans) :</label>
-                <input type="number" id="children7_12" name="children7_12" min="0" value="0">
-            </div>
-            <div class="form-group">
-                <label for="babySeats">Sièges bébé requis (0-6 ans) :</label>
-                <input type="number" id="babySeats" name="babySeats" min="0" value="0">
-            </div>
-            <div class="form-group">
-                <label for="boosterSeats">Rehausseurs requis (7-12 ans) :</label>
-                <input type="number" id="boosterSeats" name="boosterSeats" min="0" value="0">
-            </div>
-            <div class="form-group">
-                <label for="luggage">Nombre de bagages standard :</label>
-                <input type="number" id="luggage" name="luggage" min="0" value="1">
-                <small>Indiquez le nombre de valises de taille normale.</small>
-            </div>
-        </section>
-
-        <section class="form-section">
-            <h2>4. Options et Instructions</h2>
-            <div class="form-group">
-                <label>Type de Service Souhaité :</label>
-                <div class="radio-group">
-                    <input type="radio" id="serviceStandard" name="serviceType" value="standard" checked>
-                    <label for="serviceStandard">Navette Standard (Confort Vacances)</label>
+                <div class="form-group">
+                    <label for="email">Adresse e-mail :</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
-                <div class="radio-group">
-                    <input type="radio" id="serviceVIP" name="serviceType" value="vip">
-                    <label for="serviceVIP">Service VIP (Affaires)</label>
+                <div class="form-group">
+                    <label for="phone">Numéro de téléphone :</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+32 123 45 67 89" required>
                 </div>
-                <small class="service-description">
-                    <span id="standardDesc">Idéal pour les familles et les voyages de loisirs, privilégiez la fiabilité et le confort.</span>
-                    <span id="vipDesc" style="display: none;">Optez pour la discrétion, le luxe et la flexibilité pour vos déplacements professionnels.</span>
-                </small>
-            </div>
-
-            <div class="form-group">
-                <label for="desiredArrivalTime">Heure d'arrivée souhaitée à l'aéroport avant décollage :</label>
-                <select id="desiredArrivalTime" name="desiredArrivalTime">
-                    <option value="">Sélectionnez</option>
-                    <option value="1h30">1h30 avant l'heure de décollage</option>
-                    <option value="2h00">2h00 avant l'heure de décollage</option>
-                    <option value="2h30">2h30 avant l'heure de décollage</option>
-                    <option value="3h00">3h00 avant l'heure de décollage</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="comments">Commentaires complémentaires / Instructions spéciales :</label>
-                <textarea id="comments" name="comments" rows="5" placeholder="Besoin d'un arrêt supplémentaire ? Bagages hors-norme ? Autres précisions..."></textarea>
-            </div>
-        </section>
-
-        <section class="form-section">
-            <h2>5. Préférences de Paiement</h2>
-            <div class="form-group">
-                <label>Mode de paiement souhaité :</label>
-                <div class="radio-group">
-                    <input type="radio" id="payCash" name="paymentMethod" value="cash" checked>
-                    <label for="payCash">Paiement au chauffeur (espèces)</label>
+                <div class="form-group">
+                    <label for="address">Adresse complète :</label>
+                    <textarea id="address" name="address" rows="3" placeholder="Numéro, Rue, Code Postal, Ville, Pays"></textarea>
                 </div>
-                <div class="radio-group">
-                    <input type="radio" id="payCard" name="paymentMethod" value="card">
-                    <label for="payCard">Paiement au chauffeur (carte bancaire)</label>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <button type="submit">Envoyer Ma Demande de Devis</button>
-    </form>
-</main>
-  </main>
-  <footer>
-    <p>Contact : navette.lstravel@gmail.com | 35 rue de la tête d’orme, 7700 Mouscron</p>
-  </footer>
+            <section class="form-section">
+                <h2>2. Détails de Votre Trajet</h2>
+                <div class="form-group">
+                    <label for="departureLocation">Lieu de départ :</label>
+                    <input type="text" id="departureLocation" name="departureLocation" placeholder="Aéroport, gare ou adresse de départ..." required>
+                </div>
+                <div class="form-group">
+                    <label for="arrivalLocation">Lieu d'arrivée :</label>
+                    <input type="text" id="arrivalLocation" name="arrivalLocation" placeholder="Aéroport, gare ou adresse d'arrivée..." required>
+                </div>
+                <div class="form-group">
+                    <label for="departureDate">Date & Heure de départ (Aller) :</label>
+                    <input type="date" id="departureDate" name="departureDate" required>
+                    <input type="time" id="departureTime" name="departureTime" value="09:00" required>
+                </div>
+                <div class="form-group">
+                    <label for="tripType">Type de trajet :</label>
+                    <div class="radio-group">
+                        <input type="radio" id="oneWay" name="tripType" value="oneWay" checked>
+                        <label for="oneWay">Aller simple</label>
+                        <input type="radio" id="roundTrip" name="tripType" value="roundTrip">
+                        <label for="roundTrip">Aller-Retour</label>
+                    </div>
+                </div>
+                <div class="form-group" id="returnFields" style="display: none;">
+                    <label for="returnDate">Date & Heure de retour :</label>
+                    <input type="date" id="returnDate" name="returnDate">
+                    <input type="time" id="returnTime" name="returnTime" value="18:00">
+                </div>
+
+                <div class="form-group">
+                    <label for="outboundFlightNumber">N° de vol Aller :</label>
+                    <input type="text" id="outboundFlightNumber" name="outboundFlightNumber" placeholder="Ex: LH1234 (facultatif)">
+                </div>
+                <div class="form-group">
+                    <label for="outboundPickupAddress">Adresse de prise en charge (si différente du point de départ choisi) :</label>
+                    <input type="text" id="outboundPickupAddress" name="outboundPickupAddress" placeholder="Ex: Votre hôtel, adresse privée...">
+                </div>
+
+                <div id="returnDetailsSection" style="display: none;">
+                    <h3>Informations pour le Retour</h3>
+                    <div class="form-group">
+                        <label for="returnFlightNumber">N° de vol Retour :</label>
+                        <input type="text" id="returnFlightNumber" name="returnFlightNumber" placeholder="Ex: AF5678 (facultatif)">
+                    </div>
+                    <div class="form-group">
+                        <label for="returnDropoffAddress">Adresse de dépose (si différente du point d'arrivée choisi) :</label>
+                        <input type="text" id="returnDropoffAddress" name="returnDropoffAddress" placeholder="Ex: Votre domicile, bureau...">
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>3. Passagers et Équipements</h2>
+                <div class="form-group">
+                    <label for="passengers">Nombre total de passagers :</label>
+                    <input type="number" id="passengers" name="passengers" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="adults">Adultes (13 ans et plus) :</label>
+                    <input type="number" id="adults" name="adults" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="children0_6">Enfants (0-6 ans) :</label>
+                    <input type="number" id="children0_6" name="children0_6" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="children7_12">Enfants (7-12 ans) :</label>
+                    <input type="number" id="children7_12" name="children7_12" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="babySeats">Sièges bébé requis (0-6 ans) :</label>
+                    <input type="number" id="babySeats" name="babySeats" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="boosterSeats">Rehausseurs requis (7-12 ans) :</label>
+                    <input type="number" id="boosterSeats" name="boosterSeats" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="luggage">Nombre de bagages standard :</label>
+                    <input type="number" id="luggage" name="luggage" min="0" value="1">
+                    <small>Indiquez le nombre de valises de taille normale.</small>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>4. Options et Instructions</h2>
+                <div class="form-group">
+                    <label>Type de Service Souhaité :</label>
+                    <div class="radio-group">
+                        <input type="radio" id="serviceStandard" name="serviceType" value="standard" checked>
+                        <label for="serviceStandard">Navette Standard (Confort Vacances)</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="serviceVIP" name="serviceType" value="vip">
+                        <label for="serviceVIP">Service VIP (Affaires)</label>
+                    </div>
+                    <small class="service-description">
+                        <span id="standardDesc">Idéal pour les familles et les voyages de loisirs, privilégiez la fiabilité et le confort.</span>
+                        <span id="vipDesc" style="display: none;">Optez pour la discrétion, le luxe et la flexibilité pour vos déplacements professionnels.</span>
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="desiredArrivalTime">Heure d'arrivée souhaitée à l'aéroport avant décollage :</label>
+                    <select id="desiredArrivalTime" name="desiredArrivalTime">
+                        <option value="">Sélectionnez</option>
+                        <option value="1h30">1h30 avant l'heure de décollage</option>
+                        <option value="2h00">2h00 avant l'heure de décollage</option>
+                        <option value="2h30">2h30 avant l'heure de décollage</option>
+                        <option value="3h00">3h00 avant l'heure de décollage</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Commentaires complémentaires / Instructions spéciales :</label>
+                    <textarea id="comments" name="comments" rows="5" placeholder="Besoin d'un arrêt supplémentaire ? Bagages hors-norme ? Autres précisions..."></textarea>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>5. Préférences de Paiement</h2>
+                <div class="form-group">
+                    <label>Mode de paiement souhaité :</label>
+                    <div class="radio-group">
+                        <input type="radio" id="payCash" name="paymentMethod" value="cash" checked>
+                        <label for="payCash">Paiement au chauffeur (espèces)</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="payCard" name="paymentMethod" value="card">
+                        <label for="payCard">Paiement au chauffeur (carte bancaire)</label>
+                    </div>
+                </div>
+            </section>
+
+            <button type="submit">Envoyer Ma Demande de Devis</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Contact : navette.lstravel@gmail.com | 35 rue de la tête d’orme, 7700 Mouscron</p>
+    </footer>
+
+    <script src="demande-devis-detaillee.js" defer></script>
 </body>
 </html>
