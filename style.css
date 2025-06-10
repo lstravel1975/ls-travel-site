@@ -81,7 +81,7 @@ main {
 
 /* Section Hero */
 .hero {
-    background: url('istockphoto-525408989-612x612.jpg') no-repeat center center/cover; /* NOM DE L'IMAGE MIS À JOUR ICI */
+    background: url('istockphoto-525408989-612x612.jpg') no-repeat center center/cover; /* NOM DE L'IMAGE PRINCIPALE */
     color: var(--light-text-color);
     text-align: center;
     padding: 6rem 2rem;
@@ -164,7 +164,7 @@ main {
     transform: translateY(-2px);
 }
 
-/* Section Features */
+/* Section Features (sans icônes) */
 .features {
     display: flex;
     flex-wrap: wrap;
@@ -184,17 +184,18 @@ main {
     background-color: var(--background-light);
 }
 
-.feature-item .feature-icon {
+/* Suppression du style pour .feature-icon */
+/* .feature-item .feature-icon {
     width: 80px;
     height: 80px;
     margin-bottom: 1rem;
     object-fit: contain;
-}
+} */
 
 .feature-item h2 {
     color: var(--primary-color);
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Conservez cette marge ou ajustez-la si nécessaire */
 }
 
 .feature-item p {
