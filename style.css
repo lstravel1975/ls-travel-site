@@ -46,10 +46,14 @@ header .logo {
     /* Si votre logo est déjà blanc ou clair, retirez cette ligne */
 }
 
-header h1 {
-    font-size: 1.8rem;
+/* Nouvelle règle pour le texte du logo */
+header .logo-text {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--secondary-color); /* Couleur or/jaune */
     margin: 0;
-    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 header nav ul {
@@ -268,30 +272,3 @@ footer {
         font-size: 1.8rem;
     }
 }
-Ensuite, ajustement de index.html (très petite modification)
-Il y a un petit détail dans votre index.html que j'ai remarqué sur la capture d'écran "Capture d'écran 2025-06-10 125553.png" : le logo dans l'en-tête ne s'affiche pas correctement. Cela est probablement dû au fait que votre logo est noir et que l'en-tête est maintenant noir.
-
-Pour que le logo apparaisse bien, nous allons ajouter une classe logo-text au <h1> dans l'en-tête si vous n'avez pas de fichier logo.png clair, ou ajuster le CSS si votre logo.png est une image.
-
-Option 1 : Si vous voulez que "LS Travel" soit du texte (plus simple et s'adapte au CSS)
-
-Si vous préférez que "LS Travel" dans l'en-tête soit du texte stylisé plutôt qu'une image de logo (car l'image est peut-être foncée sur fond foncé), modifiez votre index.html comme suit :
-
-Ouvrez index.html en mode édition sur GitHub.
-
-Trouvez la section <header> :
-
-HTML
-
-<header>
-    <img src="logo.png" alt="Logo LS Travel" class="logo" />
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="reservation.html">Réservation</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="apropos.html">À propos</a></li>
-        </ul>
-    </nav>
-</header>
