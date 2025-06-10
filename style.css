@@ -1,7 +1,7 @@
 /* Variables de couleurs */
 :root {
     --primary-color: #003366; /* Bleu foncé pour le logo et les éléments clés */
-    --secondary-color: #FFC300; /* Jaune/Or pour les accents */
+    --secondary-color:#00BCD4; /* Jaune/Or pour les accents */
     --text-color: #333; /* Texte sombre */
     --light-text-color: #f4f4f4; /* Texte clair sur fond sombre */
     --background-light: #f9f9f9; /* Fond clair pour les sections */
