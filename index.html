@@ -23,6 +23,58 @@
   <main>
     <h1>Bienvenue chez LS Travel</h1>
     <p>Votre service de navette aéroport 24/7, transport événementiel, déplacements privés ou professionnels et mise à disposition pour entreprises.</p>
+    <section class="hero-section">
+            <div class="hero-content">
+                <h1>Vos Transferts Aéroport : Sécurité, Confort, Ponctualité.</h1>
+                <p>Voyage d'affaires ou vacances en famille : Votre navette, notre engagement.</p>
+
+                <div class="quick-quote-form-container">
+                    <h2>Demandez Votre Devis Personnalisé</h2>
+                    <p class="form-subtitle">Réponse rapide garantie.</p>
+
+                    <form id="quickQuoteForm" action="demande-devis-detaillee.html" method="GET">
+                        <div class="form-group">
+                            <label for="tripType">Type de trajet :</label>
+                            <div class="radio-group">
+                                <input type="radio" id="oneWay" name="tripType" value="oneWay" checked>
+                                <label for="oneWay">Aller simple</label>
+                                <input type="radio" id="roundTrip" name="tripType" value="roundTrip">
+                                <label for="roundTrip">Aller-Retour</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="departureLocation">Lieu de départ :</label>
+                            <input type="text" id="departureLocation" name="departureLocation" placeholder="Aéroport, gare ou adresse de départ..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="arrivalLocation">Lieu d'arrivée :</label>
+                            <input type="text" id="arrivalLocation" name="arrivalLocation" placeholder="Aéroport, gare ou adresse d'arrivée..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="departureDate">Date & Heure de départ (Aller) :</label>
+                            <input type="date" id="departureDate" name="departureDate" required>
+                            <input type="time" id="departureTime" name="departureTime" value="09:00" required>
+                        </div>
+
+                        <div class="form-group" id="returnFields" style="display: none;">
+                            <label for="returnDate">Date & Heure de retour :</label>
+                            <input type="date" id="returnDate" name="returnDate">
+                            <input type="time" id="returnTime" name="returnTime" value="18:00">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="passengers">Nombre de passagers :</label>
+                            <input type="number" id="passengers" name="passengers" min="1" value="1" required>
+                        </div>
+
+                        <button type="submit">Demander mon devis détaillé</button>
+                    </form>
+                </div>
+            </div>
+        </section>
   </main>
   <footer>
     <p>Contact : navette.lstravel@gmail.com | 35 rue de la tête d’orme, 7700 Mouscron</p>
