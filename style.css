@@ -209,3 +209,112 @@ button[type="submit"]:hover {
         gap: 10px;
     }
 }
+/* Styles pour la page de devis détaillée */
+.detailed-quote-page-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.detailed-quote-page-container h1 {
+    text-align: center;
+    color: #0056b3;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.detailed-quote-page-container .subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+.form-section {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+}
+
+.form-section h2 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Styles pour les champs input et textarea, hérités du formulaire rapide, ajustés si besoin */
+.detailed-quote-page-container input[type="text"],
+.detailed-quote-page-container input[type="email"],
+.detailed-quote-page-container input[type="tel"],
+.detailed-quote-page-container input[type="number"],
+.detailed-quote-page-container textarea,
+.detailed-quote-page-container select {
+    width: calc(100% - 22px); /* Ajuster pour le padding et bordure */
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box; /* Important pour inclure padding et bordure dans la largeur */
+}
+
+.detailed-quote-page-container input[type="number"] {
+    width: 80px; /* Largeur fixe pour les champs numériques */
+    text-align: center;
+}
+
+.summary-box {
+    background-color: #e9f7ff;
+    border: 1px solid #cce7ff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-box h3 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.summary-box p {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.summary-box strong {
+    color: #333;
+}
+
+.service-description {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Bouton de soumission - peut réutiliser le style du bouton rapide */
+.detailed-quote-page-container button[type="submit"] {
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .detailed-quote-page-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .detailed-quote-page-container h1 {
+        font-size: 1.8em;
+    }
+    .form-section {
+        padding: 15px;
+    }
+}
